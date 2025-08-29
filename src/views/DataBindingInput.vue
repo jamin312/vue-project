@@ -14,6 +14,7 @@
     <button v-on:click="sumNumber">더하기</button>
     <button v-on:click="minusNumber">빼기</button>
     <button v-on:click="multiNumber">곱하기</button>
+    <button v-on:click="diviNumber">나누기</button>
   </h3>
   <p>위쪽 인풋 기본값 : {{ valueText }}</p>
   <p>결과 : {{ resultVal }}</p>
@@ -42,6 +43,9 @@ export default {
     multiNumber() {
       this.resultVal = this.valueText * this.valueNum;
     },
+    diviNumber() {
+      this.resultVal = this.valueText / this.valueNum;
+    },
     opSelect() {
       let result;
 
@@ -57,6 +61,12 @@ export default {
 
       this.opResult = result;
     },
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate");
+  },
+  updated() {
+    console.log("updated");
   },
 };
 </script>
